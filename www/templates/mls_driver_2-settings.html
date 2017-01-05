@@ -1,0 +1,33 @@
+	<ion-view view-title="Settings" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top" lazy-scroll  id="page-settings" class="page-settings">
+		<div class="card">
+  <div class="item item-text-wrap">
+    <h4>Settings</h4>
+    <p>This will allow you to change app settings for MLS</p>
+  </div>
+</div>
+<div class="item range">
+  <i class="icon ion-volume-low"></i>
+  <input type="range" name="volume">
+  <i class="icon ion-volume-high"></i>
+</div>
+
+<div class="list">
+  <div class="item range range-positive">
+    <i class="icon ion-ios-sunny-outline"></i>
+    <input type="range" name="volume" min="0" max="100" value="33">
+    <i class="icon ion-ios-sunny"></i>
+  </div>
+</div>
+<button class="button button-block button-energized" ng-click="clearLocalStorage()">
+  Clear Local Cache
+</button>
+
+          <button class="button button-block button-positive">
+  Save Settings
+</button>
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

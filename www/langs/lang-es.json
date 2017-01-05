@@ -1,0 +1,52 @@
+{
+    "LOGIN": {
+        "text_title": "Firebase 3 Starter",
+        "login_title": "Ingresar",
+        "email_field": "Email",
+        "pass_field": "Password",
+        "signin_message": "Ingresar",
+        "signinanon_message": "Ingresar como Anonimo",
+        "forgot_message": "Olvido Password?",
+        "join_message": "Registrarse"
+    },
+    "REGISTER": {
+        "text_title": "Registrarse",
+        "login_title": "Registrarse",
+        "email_field": "Email",
+        "pass_field": "Password",
+        "signin_message": "Ingresar",
+        "forgot_message": "Olvido Password?",
+        "join_message": "Registrarse"
+    },
+    "FORGOT": {
+        "text_title": "Recuperar Password",
+        "email_field": "Email",
+        "button_message": "Reiniciar Password"
+    },
+    "ERRORS": {
+        "signin_ema_required": "Este campo es requerido.",
+        "signin_ema_email": "Este campo debe ser un email.",
+        "signin_ema_maxlength": "Este campo debe ser al menos 6 caracteres.",
+        "signin_ema_minlength": "Este campo debe ser al menos de 30 caracteres.",
+        "signin_pass_required": "Este campo es requerido.",
+        "signin_pass_maxlength": "Este campo debe ser al menos 6 caracteres.",
+        "signin_pass_minlength": "Este campo debe ser al menos de 30 caracteres.",
+        "register_ema_required": "Este campo es requerido.",
+        "register_ema_email": "Este campo debe ser un email.",
+        "register_ema_maxlength": "Este campo debe ser al menos 6 caracteres.",
+        "register_ema_minlength": "Este campo debe ser al menos de 30 caracteres.",
+        "register_pass_required": "Este campo es requerido.",
+        "register_pass_maxlength": "Este campo debe ser al menos 6 caracteres.",
+        "register_pass_minlength": "Este campo debe ser al menos de 30 caracteres.",
+        "register_pass_pattern": "Este campo solo debe tener numeros y letras",
+        "forgot_ema_required": "Este campo es requerido.",
+        "forgot_ema_email": "Este campo debe ser un correo.",
+        "forgot_ema_maxlength": "Este campo debe ser al menos 6 caracteres.",
+        "forgot_ema_minlength": "Este campo debe ser al menos de 30 caracteres."
+    },
+    "MESSAGES": {
+        "title_1": "Exito",
+        "success_message": "El password fue enviado al correo.",
+        "loading": "Cargando..."
+    }
+}

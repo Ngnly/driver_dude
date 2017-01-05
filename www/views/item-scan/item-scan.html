@@ -1,0 +1,45 @@
+<ion-view view-title="Scanning {{scan.barcode}}" hide-nav-bar="false"  class="has-footer">
+	<!-- content -->
+	<ion-content delegate-handle="top" lazy-scroll  id="page-scan" class="page-scan">
+		<div  class="list card" ng-show="scan.return">
+
+			<div class="item item-avatar">
+
+				<img src="data/images/images/box.png">
+				<h2>{{scan.return.name}}</h2>
+				<p><b>Last Update:</b> {{scan.return.last}}</p>
+				<p><b>Serial:</b> {{scan.return.barcode}}<a href="#" class="badge badge-balanced">{{scan.return.status}}</a></p>
+			</div>
+			<div class="button-bar">
+				<a class="button button-assertive">Damaged</a>
+				<a class="button button-calm">Wrong Location</a>
+				<a class="button button-energized">PickUp</a>
+			</div>
+
+		</div>
+
+		<div class="list">
+
+			<div class="item item-input-inset">
+				<label class="item-input-wrapper">
+					<input type="text"ng-model="scan.barcode" class="barcode-scan-input " placeholder="Waiting Input..">
+				</label>
+				<button ng-click="doScan()" class="button button-large">
+					SCAN
+				</button>
+			</div>
+
+		</div>
+		<input type="text" >
+	</ion-content>
+	<!-- ./content -->
+
+	<!--<ion-footer-bar  class="bar bar-positive ">-->
+		<!--<button ng-click="doScan()" class="button icon ion-navicon"></button>-->
+		<!--<button ng-click="showConfirm()" class="pull-right button icon ion-checkmark "></button>-->
+
+
+		<!--&lt;!&ndash;<a  class="button button-balanced" >Complete</a>&ndash;&gt;-->
+
+	<!--</ion-footer-bar>-->
+</ion-view>

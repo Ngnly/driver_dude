@@ -1,0 +1,64 @@
+<ion-view view-title="" hide-back-button="true" ng-init="checkUser()">
+  <ion-nav-bar class="bar-positive" align-title="center">
+        <ion-nav-title >
+            {{ 'LOGIN.text_title' | translate }}
+          </ion-nav-title>
+  </ion-nav-bar>
+        <ion-content class="padding-top">
+          <div class="list text-center padding">
+            <i class="icon ion-ios-game-controller-b larger positive"></i>
+          </div>
+          <form novalidate name="loginForm" ng-submit="loginForm.$valid && signIn(user)">
+          <div class="list">
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : loginForm.txtemail.$invalid && loginForm.$submitted }">
+              <span class="input-label">{{ 'LOGIN.email_field' | translate }}</span>
+              <input name="txtemail" type="email" ng-model="user.email" placeholder="{{ 'LOGIN.email_field' | translate }}"
+              ng-minlength="6"
+              ng-maxlength="30"
+              required>
+            </label>
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="loginForm.txtemail.$error" ng-if="loginForm.$submitted">
+              <div class="form-error" ng-message="required">{{ 'ERRORS.signin_ema_required' | translate }}</div>
+              <div class="form-error" ng-message="email">{{ 'ERRORS.signin_ema_email' | translate }}</div>
+              <div class="form-error" ng-message="minlength">{{ 'ERRORS.signin_ema_maxlength' | translate }}</div>
+              <div class="form-error" ng-message="maxlength">{{ 'ERRORS.signin_ema_minlength' | translate }}</div>
+            </div>
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : loginForm.txtPassword.$invalid && loginForm.$submitted }">
+              <span class="input-label">{{ 'LOGIN.pass_field' | translate }}</span>
+              <input name="txtPassword" type="password" ng-model="user.password" placeholder="{{ 'LOGIN.pass_field' | translate }}"
+              ng-minlength="6"
+              ng-maxlength="30"
+              required>
+            </label>
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="loginForm.txtPassword.$error" ng-if="loginForm.$submitted">
+            <div class="form-error" ng-message="required">{{ 'ERRORS.signin_pass_required' | translate }}</div>
+            <div class="form-error" ng-message="minlength">{{ 'ERRORS.signin_pass_maxlength' | translate }}</div>
+            <div class="form-error" ng-message="maxlength">{{ 'ERRORS.signin_pass_minlength' | translate }}</div>
+            </div>
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Route</span>
+              <input name="route" type="password" ng-model="user.route" placeholder="Route ID"
+
+                     required>
+            </label>
+
+          </div>
+          <div class="padding-top">
+            <input type="submit" class="button button-block button-positive" value="{{ 'LOGIN.signin_message' | translate }}">
+            <a ng-click="signInAnon()" class="button button-block button-positive">{{ 'LOGIN.signinanon_message' | translate }}</a>
+            <p class="text-center padding-top">
+                <a href="#/forgot" class="button button-clear button-positive">{{ 'LOGIN.forgot_message' | translate }}</a><a href="#/register" class="button button-clear button-positive">{{ 'LOGIN.join_message' | translate }}</a>
+            </p>
+            <!-- TODO -->
+            <!--
+            <p class="text-center padding"> 
+              Login with:
+                <i ng-click="loginWithFacebook()" class="icon padding medium ion-social-facebook positive"></i><i ng-click="loginWithGoogle()" class="icon padding medium ion-social-google positive"></i><i ng-click="loginWithTwitter()" class="icon padding medium ion-social-twitter positive"></i>
+            </p>
+            -->
+          </div>
+        </form>
+        </ion-content>
+</ion-view>

@@ -1,0 +1,51 @@
+<ion-view view-title="">
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-back-button>
+  </ion-nav-back-button>
+        <ion-nav-title >
+            {{ 'REGISTER.text_title' | translate }}
+          </ion-nav-title>
+  </ion-nav-bar>
+  <ion-content class="padding-top">
+    <div class="text-center padding-top">
+      <i class="icon ion-android-person-add larger positive"></i>
+    </div>
+    <form name="registerForm" novalidate ng-submit="registerForm.$valid && register(user)"
+    ng-class="{ 'has-error' : registerForm.txtemail.$invalid && registerForm.$submitted }">
+    <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">{{ 'REGISTER.email_field' | translate }}</span>
+        <input name="txtemail" type="email" ng-model="user.email" placeholder="{{ 'REGISTER.email_field' | translate }}"
+        ng-minlength="6"
+        ng-maxlength="30"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.txtemail.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">{{ 'ERRORS.register_ema_required' | translate }}</div>
+        <div class="form-error" ng-message="email">{{ 'ERRORS.forgot_ema_email' | translate }}</div>
+        <div class="form-error" ng-message="maxlength">{{ 'ERRORS.register_ema_minlength' | translate }}<</div>
+      </div>
+        <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : registerForm.txtpassword.$invalid  && registerForm.$submitted}">
+        <span class="input-label">{{ 'REGISTER.pass_field' | translate }}</span>
+        <input name="txtpassword" type="password" ng-model="user.password" placeholder="{{ 'REGISTER.pass_field' | translate }}"
+        ng-minlength="6"
+        ng-maxlength="25"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.txtpassword.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">{{ 'ERRORS.register_pass_required' | translate }}</div>
+        <div class="form-error" ng-message="minlength">{{ 'ERRORS.register_pass_maxlength' | translate }}</div>
+        <div class="form-error" ng-message="maxlength">{{ 'ERRORS.register_pass_minlength' | translate }}</div>
+        <div class="form-error" ng-message="pattern">{{ 'ERRORS.register_pass_pattern' | translate }}</div>
+      </div>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Display Name</span>
+        <input name="txtpassword" type="text" ng-model="user.name" placeholder="">
+      </label>
+    </div>
+    <div class="padding-top">
+      <input type="submit" value="Register" class="button button-block button-positive"/>
+    </div>
+  </form>
+  </ion-content>
+</ion-view>

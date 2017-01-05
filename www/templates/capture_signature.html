@@ -1,0 +1,11 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">My Modal title</h1>
+    </ion-header-bar>
+    <ion-content scroll="false">
+        <!--<img ng-src="{{ signature.dataUrl }}">-->
+        <signature-pad accept="accept" clear="clear" height="250px" width="500"></signature-pad>
+        <button class="button button-block" ng-click="clear()">Clear signature</button>
+        <button class="button button-block" ng-click="signature = accept();closeModal();">Sign</button>
+    </ion-content>
+</ion-modal-view>

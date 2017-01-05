@@ -1,0 +1,17 @@
+{
+  "name": "mls-tracker",
+  "version": "1.0.0",
+  "description": "Moneysworth Linen Services Mobile App",
+  "main": "index.js",
+  "dependencies": {
+    "angular-moment": "^1.0.1",
+    "angularfire": "^2.2.0",
+    "moment": "^2.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

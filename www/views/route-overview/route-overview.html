@@ -1,0 +1,41 @@
+	<ion-view view-title="Route {{user.route}} Overview" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top" lazy-scroll  id="page-route_overview" class=" page-route_overview">
+					<ion-refresher pulling-text="Pull to refresh..."  on-refresh="doRefresh()"></ion-refresher>
+			<ion-list class="card list">
+				<div class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="search" ng-model="q" placeholder="Search" aria-label="filter stops" />
+				</div>
+			</ion-list>
+
+			<div class="list route-list animate-fade-slide-in-right">
+				<div class="" ng-repeat="item in stops | filter:q as results" ng-init="$last ? fireEvent() : null" >
+					<div class="card positive dark ink ink-dark st_{{item.status}}">
+						<a class="item item-thumbnail-left item-text-wrap " ng-class="" ng-href="#/driver_dude/route_start/{{$index}}" >
+							<span class="stop-type {{item.type}}">
+								{{item.type}}
+							</span>
+							<p>{{item.name}} - {{item.UnitID}}</p>
+							<p>{{item.AgentName}} - #{{item.ticket_id}}</p>
+							<h1><i class="ion-android-map" ng-if="item.lat"></i> {{item.Address}} </h1>
+							<h2 ng-if="item.Comments !=''"><i class="ion ion-clipboard"></i> {{item.Comments}} </h2>
+
+						</a>
+					</div>
+				</div>
+			</div>
+			<ion-list class="list">
+				<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="onInfinite()" distance="5px" ng-if="hasMoreData"></ion-infinite-scroll>
+			</ion-list>
+
+			<ion-list class="list">
+				<div class="item" ng-if="results.length == 0" >
+					<p>No results found...!</p>
+				</div>
+			</ion-list>
+
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

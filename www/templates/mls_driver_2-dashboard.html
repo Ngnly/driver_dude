@@ -1,0 +1,46 @@
+	<ion-view view-title="Dashboard" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top" lazy-scroll  id="page-dashboard" class="page-dashboard">
+		<div class="card">
+  <div class="item item-text-wrap" >
+    <h1>Hello {{$rootScope.user.email}}</h1>
+    
+    <p>Let's get started.<br/><b>Route: </b>{{user.route}}</p>
+    {{user | json}}
+  </div>
+</div>
+    <div class="row eventTab">
+      <div class="col col-50">
+        <a ng-href="#/driver_dude/route_overview" class="tabtext" >
+          <div class="icon"><i class="ion-document"></i></div>
+          <h3>View Route</h3>
+        </a>
+      </div>
+      <div class="col col-50">
+        <a class="tabtext"  ng-href="#/driver_dude/route_start/0">
+          <div class="icon"><i class="ion-briefcase"></i></div>
+          <h3>Start</h3>
+        </a>
+      </div>
+    </div>
+    <div class="row eventTab">
+      <div class="col col-50">
+        <a class="tabtext" ng-href="#/driver_dude/route_overview">
+          <div class="icon"><i class="ion-home"></i></div>
+          <h3>Forms</h3>
+        </a>
+      </div>
+      <div class="col col-50">
+        <div class="tabtext"  ng-href="#/driver_dude/scan">
+          <div class="icon"><i class="ion-bug"></i></div>
+          <h3>Item Lookup</h3>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

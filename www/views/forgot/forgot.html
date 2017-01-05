@@ -1,0 +1,26 @@
+<ion-view view-title="{{ 'FORGOT.text_title' | translate }}">
+  <ion-content class="padding-top">
+    <div class="text-center padding">
+      <i class="icon ion-ios-infinite larger positive"></i>
+    </div>
+    <form name="forgotForm" novalidate ng-submit="forgotForm.$valid && resetpassword(user)">
+   <div class="list">
+      <label class="item item-input item-floating-label" ng-class="{ 'has-error' : forgotForm.txtemail.$invalid && forgotForm.$submitted }">
+        <span class="input-label">{{ 'FORGOT.email_field' | translate }}</span>
+        <input name="txtemail" ng-model="user.email" placeholder="{{ 'FORGOT.email_field' | translate }}" type="email"
+        ng-minlength="6"
+        ng-maxlength="30"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="forgotForm.txtemail.$error" ng-if="forgotForm.$submitted">
+        <div class="form-error" ng-message="required">{{ 'ERRORS.forgot_ema_required' | translate }}</div>
+        <div class="form-error" ng-message="email">{{ 'ERRORS.forgot_ema_email' | translate }}</div>
+        <div class="form-error" ng-message="minlength">{{ 'ERRORS.forgot_ema_maxlength' | translate }}</div>
+        <div class="form-error" ng-message="maxlength">{{ 'ERRORS.forgot_ema_minlength' | translate }}</div>
+      </div>
+      <div class="padding-top">
+      <input type="submit" value="{{ 'FORGOT.button_message' | translate }}" class="button button-block button-positive"/>
+  </form>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,47 @@
+	<ion-view view-title="{{ stop.customer_name }} # {{ stop.customer_id }}" hide-nav-bar="false"  class="has-footer">
+		<!-- content -->
+		<ion-content delegate-handle="top" lazy-scroll  id="page-stop_singles" class="page-stop_singles">
+					<ion-refresher pulling-text="Pull to refresh..."  on-refresh="doRefresh()"></ion-refresher>
+	
+			<!--<div class="hero slide-up positive-bg" style="background-image: url('{{stop.thumbnail}}');">-->
+				<!---->
+				<!--<div class="padding-horizontal padding-bottom content">-->
+					<!--<h3 style="    text-shadow: 2px 2px gray;"><a class="light">{{ stop.customer_name }} <br><small>{{stop.address}}</small></a></h3>-->
+
+				<!--</div>-->
+			<!--</div>-->
+			<div class="tabs tabs-calm tabs-icon-top static">
+				<a ng-click="$ionicGoBack()" class="tab-item">
+					<i class="icon ion-ios-albums-outline"></i> All Stops
+				</a>
+				<a class="tab-item tab-item-active active">
+					<i class="icon ion-ios-list-outline"></i> Details
+				</a>
+              <a class="tab-item" ng-click="showMap = !showMap" >
+					<i class="icon ion-map"></i> View Map
+              </a>
+				</div>
+			<div class="list card">
+					<div class="item " ><b>{{stop.customer_name}}</b><br><small>{{ stop.full_address}}</small></div>
+              <div class="item  ">Delivery Time: <span class="pull-right bold">{{ stop.stopTime }}</span></div>
+              <div class="item " >Address: <span class="pull-right bold">{{ stop.address }}</span></div>
+              <div class="item " >Carts: <span class="pull-right bold">{{ stop.carts }}</span></div>
+				<div class="item" ng-click="runAppCall({{stop.telephone}})">Contact<span class="pull-right bold">Contact<br>{{stop.telephone}}</span></div>
+
+
+					<i class="icon {{stop.status}}"></i>
+			</div>
+			<div  class="list card" ng-bind-html="stop.actions | to_trusted">{{stop.actions}}</div>
+
+		</ion-content>
+		<!-- ./content -->
+
+		<ion-footer-bar  class="bar bar-positive ">
+			<button ng-click="show()" class="button icon ion-navicon"></button>
+			<button ng-click="showConfirm()" class="pull-right button icon ion-checkmark "></button>
+
+
+			<!--<a  class="button button-balanced" >Complete</a>-->
+
+		</ion-footer-bar>
+	</ion-view>

@@ -1,0 +1,144 @@
+<ion-view view-title="Route {{user.route}} ({{activeIndex+1}} of {{totalStops}})" hide-nav-bar="false">
+    <!-- content -->
+
+
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+
+
+        <div class="show" ng-hide="updateData.stopActive">
+            <leaflet lf-center="currentLatLng" markers="markers" height="338px" width="100%"></leaflet>
+        </div>
+        <div ng-show="updateData.stopActive">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" ng-model="updateData.barcodeScan" class="barcode-scan-input "
+                           placeholder="Waiting Input..">
+                </label>
+                <button ng-click="addScan(updateData.barcodeScan)" class="button button-large">
+                    SCAN
+                </button>
+                <button ng-click="doScan()" class="button button-large">
+                    DONE
+                </button>
+            </div>
+        </div>
+
+        <ion-slide-box options="sliderOptions" slider="data.slider" on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="item in stops | filter:q as results">
+
+
+                <div style="background-color: #fff" class="box blue">
+
+                    <div class="row">
+                        <div class="col">
+                            <h4>{{item.Address}}<br>
+                            {{item.name}} - {{item.UnitID}}
+                            </h4>
+                        </div>
+                        <div class="col">
+                            <h4 style="text-align: center">
+                                {{item.status}}<br>
+                                <small><span am-time-ago="item.lastUpdate"></span></small>
+
+                            </h4>
+                        </div>
+   <div class="col">
+                            <h4 style="text-align: right">
+                                {{item.ticket_id}}<br>
+                                {{item.checkin}} - {{item.checkout}}
+                            </h4>
+                        </div>
+
+                    </div>
+
+                    <div class="list card">
+                        <div class="item" style="background-color: #e6b500">
+                            <strong> You will be {{item.type}} the following items. {{item.Comments}}</strong>
+                        </div>
+                        <div ng-repeat="item in item.items " class="item ">
+                            <b>{{item.quantity}} {{item.Name}} </b>
+								<span ng-class="(item.quantity > 0) ? 'badge-assertive' : 'badge-balanced'"
+                                      class="badge">{{item.quantity}}</span>
+                        </div>
+                        <div class="item">
+                            <button ng-hide="updateData.stopActive" ng-click="doStop('lockStop',activeIndex)"
+                                    class="button button-block button-positive"> Do Stop
+                            </button>
+                            <button ng-show="updateData.stopActive" ng-click="doStop('lockStop',activeIndex)"
+                                    class="button button-block button-assertive"> Cancel
+                            </button>
+                            <div ng-show="updateData.stopActive">
+                                <div class="button-bar">
+                                    <a ng-click="doStop('complete',activeIndex)"
+                                       ng-class="{disabled: item.status=='Completed'}"
+                                       class="button button-positive">Complete</a>
+                                    <a ng-click="doStop('skip',activeIndex)"
+                                       ng-class="{disabled: item.status=='Skipped'}"
+                                       class="button button-assertive">Skip</a>
+                                    <a ng-click="doStop('comeback',activeIndex)"
+                                       ng-class="{disabled: item.status=='Comeback'}"
+                                       class="button button-calm">Save for Later</a>
+                                    <a ng-click="doStop('partial',activeIndex)"
+                                       ng-class="{disabled: item.status=='partial'}"
+                                       class="button button-energized">Partial</a>
+                                </div>
+                                <textarea ng-model="updateData.notes" class="notes"
+                                          placeholder="Enter notes here"></textarea>
+                            </div>
+                        </div>
+
+                        {{dataReturn | json}}
+                        <i class="icon {{stop.status}}"></i>
+                    </div>
+
+
+                    <!--<span class="span stop-type {{item.type}}">{{item.type}}</span>-->
+
+
+                </div>
+            </ion-slide>
+
+
+            <ion-slide>
+                <div style="position:relative;background-color: white" class="box blue" height="100%">
+                    <h1> Route {{routeOverview.routeNo}} Summary</h1>
+
+                    <div class="list card">
+                        <div class="item">
+                            <b>Pickup Stops</b>
+                            <span class="badge">{{routeOverview.pickups}}</span>
+                            </div>
+                        </div>
+<div class="list card">
+                        <div class="item">
+                            <b>Delivery Stops</b>
+                            <span class="badge">{{routeOverview.deliveries}}</span>
+                            </div>
+                        </div>
+<div class="list card">
+                        <div class="item">
+                            <b>Workorder Stops</b>
+                            <span class="badge">{{routeOverview.workorders}}</span>
+                            </div>
+                        </div>
+<div class="list card">
+                        <div class="item">
+                            <b>Total Bins</b>
+                            <span class="badge">{{routeOverview.linenbins}}</span>
+                            </div>
+                        </div>
+
+                    {{routeOverview.index | json}}
+                    ff
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <ion-footer>
+
+    </ion-footer>
+
+
+    <!-- ./content -->
+</ion-view>

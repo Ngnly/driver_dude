@@ -1,0 +1,45 @@
+	<ion-view view-title="Pre-Check Form" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top" lazy-scroll  id="page-form_pre_check_form" class="has-header page-form_pre_check_form">
+				<div class="list list"  >
+			<form ng-submit="submitPre_check_form()">
+              {{form_pre_check_form | json}}
+			<label class="item item-input item-floating-label">
+				<span class="input-label">truck_id</span>
+				<input type="text" ng-model="form_pre_check_form.truck_id" name="truck_id" placeholder="truck_id" />
+			</label>
+			<label class="item item-input item-floating-label">
+				<span class="input-label">mileage</span>
+				<input type="text" ng-model="form_pre_check_form.mileage" name="mileage" placeholder="mileage" />
+			</label>
+			<ion-checkbox ng-model="form_pre_check_form.checked" name="checked">
+				checked
+			</ion-checkbox>
+              	<div class="item item-divider">
+                  <h2> DOT Required Items</h2>
+			</div>
+			<span  ng-repeat="item in checklistItems"  >
+                       			<ion-checkbox  ng-model="form_pre_check_form.required[item.key]"  name="{{item.key}}">
+									{{item.text}}
+								</ion-checkbox>
+
+					</span>
+				<div class="item item-divider">
+                  <h2>Maintenance Items</h2>
+				</div>
+					<span  ng-repeat="item in checklistItemsOptional"  >
+                       			<ion-checkbox  ng-model="form_pre_check_form.maintenance[item.key]"  name="{{item.key}}">
+									{{item.text}}
+								</ion-checkbox>
+
+					</span>
+
+			<div class="item item-button">
+				<button class="button button-full button-assertive ink">Submit</button>
+			</div>
+			</form>
+		</div>
+		<br/><br/><br/><br/>
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

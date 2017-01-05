@@ -1,0 +1,52 @@
+{
+    "LOGIN": {
+        "text_title": "DriverDude App",
+        "login_title": "Sign in",
+        "email_field": "Email",
+        "pass_field": "Password",
+        "signin_message": "Login",
+        "signinanon_message": "Login as Anonymous",
+        "forgot_message": "Forgot Password?",
+        "join_message": "Register"
+    },
+    "REGISTER": {
+        "text_title": "Register",
+        "login_title": "Register",
+        "email_field": "Email",
+        "pass_field": "Password",
+        "signin_message": "Login",
+        "forgot_message": "Forgot Password?",
+        "join_message": "Join Now"
+    },
+    "FORGOT": {
+        "text_title": "Forgot Password",
+        "email_field": "Email",
+        "button_message": "Reset my password"
+    },
+    "ERRORS": {
+        "signin_ema_required": "This field is required.",
+        "signin_ema_email": "This field is must be an email.",
+        "signin_ema_maxlength": "This field is must be at least 6 characters.",
+        "signin_ema_minlength": "This field is must be less than 30 characters.",
+        "signin_pass_required": "This field is required.",
+        "signin_pass_maxlength": "This field is must be at least 6 characters.",
+        "signin_pass_minlength": "This field is must be less than 30 characters.",
+        "register_ema_required": "This field is required.",
+        "register_ema_email": "This field is must be an email.",
+        "register_ema_maxlength": "This field is must be at least 6 characters.",
+        "register_ema_minlength": "This field is must be less than 30 characters.",
+        "register_pass_required": "This field is required.",
+        "register_pass_maxlength": "This field is must be at least 6 characters.",
+        "register_pass_minlength": "This field is must be less than 30 characters.",
+        "register_pass_pattern": "This field is should contain only letters and numbers",
+        "forgot_ema_required": "This field is required.",
+        "forgot_ema_email": "This field is must be an email.",
+        "forgot_ema_maxlength": "This field is must be at least 6 characters.",
+        "forgot_ema_minlength": "This field is must be less than 30 characters."
+    },
+    "MESSAGES": {
+        "title_1": "Success",
+        "success_message": "The password was sent to your email.",
+        "loading": "Loading..."
+    }
+}
